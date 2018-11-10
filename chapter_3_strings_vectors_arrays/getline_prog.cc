@@ -7,8 +7,8 @@ using std::endl;
 using std::string;
 
 int main(){
-  string s1 = "Hello";
-  cout << s1 << endl;
-  return 0
+  string line;
+  while(getline(cin,line))
+    cout << line << endl;
+  return 0;
 }
-

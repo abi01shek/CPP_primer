@@ -1,0 +1,31 @@
+#include<iostream>
+#include<vector>
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
+
+void sample_init_vec_from_arr(){
+  int int_arr[] = {1,2,3,4,5};
+  vector<int> int_vec(std::begin(int_arr), std::end(int_arr));
+}
+
+void copy_from_vec_to_arr(){
+  int int_arr[] = {1,2,3,4,5};
+  vector<int> int_vec(std::begin(int_arr), std::end(int_arr));
+  int arr2[5] = {};
+  size_t ut = 0;
+  for (auto it = int_vec.begin(); it != int_vec.end(); it++){
+    arr2[ut] = *it;
+    ut++;
+  }
+  for(size_t i = 0; i<=ut;i++){
+    cout << arr2[i] << " ";
+  }
+  cout << endl;
+}
+
+int main() {
+  
+}

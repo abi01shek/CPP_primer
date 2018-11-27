@@ -1,0 +1,31 @@
+pass by value
+     creates a copy of the value
+     can pass pointers as parameters (still pass by value)
+pass by reference
+     give a new name to the object that is being passed to
+     example
+     void reset(int &i) // i is just another name given to the input object
+     reset(n) // calling the function
+
+C++ programmers generally use reference parameters instead
+Reference parameters values are not copied and hence take lesser memory and io requirements. 
+Reference parameters are not changed inside a function should be references to const
+	  Example 
+	  bool isShorter(const string &s1, const string &s2)
+
+Using reference parameters to return additional information
+
+Arrays as input parameters to functions
+Pass pointers to arrays, you cannot copy arrays
+void print(const int*);
+void print(const int[]);   // shows the intent that the function takes an array
+void print(const int[10]); // dimension for documentation purposes (atbest)
+
+How to know the length of the arrays
+1. Using markers to specify the extent of an array. Make the array itself contain an end marker. (Null markers in strings for example)
+2. Using standard library conventions
+   void print(const int *beg, const int *end)
+   print(std::begin(j), std::end(j));
+3. explicitly passing a size paramter
+   void print(const int ia[], size_t size)
+   print(j, end(j) - begin(j));

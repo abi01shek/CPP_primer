@@ -29,3 +29,100 @@ How to know the length of the arrays
 3. explicitly passing a size paramter
    void print(const int ia[], size_t size)
    print(j, end(j) - begin(j));
+
+
+function that takes varying number of arguments
+arguments are of same type - initializer list
+initializer list is a library type that represents an array of values of specified type
+type defined in initializer list header
+initializer_list<T> lst; default initialization of empty list of elements of type T
+initializer_list<T> lst:a,b,c...} type T and elemets are copies of corresponding initializers
+lst2(lst) copying or assigning an initializer list does not opy the elements
+list2 = lst same as above original and copy share the elements
+lst.size() number of elements in the list
+lst.begin() pointer to first and one pat the last element in lst
+lst.end()
+
+initializer list is atemplate type
+all values in initialzer list are const values
+
+Overloaded functions
+* functions perform same general action but different parameter types
+* must have different parameters, return type does not count
+* top level const does not count.
+* we can overload based on whether the parameter is a reference to the const or nonconst version of a given type.
+* const_cast and overloading - use const_cast to shift variables from non-const to const
+
+Calling overloaded functions
+* function matching or overload resolution 
+* best match, no match - error, ambiguous call - error
+
+overloading and scope
+* names declard in inner scope hides uses of that name declared in outer scope.
+* names are not overloaded across scopes
+
+Features for specialized users
+* default arguments
+  we can provide default values for parameters whcih are used which can be overriden by the user
+  arguments in the call are resolved by poistion
+  only trailing arguments can be omitted.
+  we have to order the parameters so that those least likely to use a default value appear first and those most likely to use default value appear last.
+  Default arguments should be specified with the function declaration in an appropriate header 
+* inline functions
+* constexpr functions
+
+Aids for debugging
+* code that is executed only while program is being developed and should be disabled when debugging code is turned off.
+* two preprocessor facilities
+  * assert
+  * NDEBUG
+
+assert
+* preprocessor macro - preprocessor variable that acts like an inline function. 
+* assert(expr)
+* if expr if false, assert writes a message and terminates program
+* if expr is true then assert does nothing
+* assert(word.size() > threshold)
+NDEBUG
+* behavior of assert depends on NDEBUG.
+* Use assert only in debugging
+* If NDEBUG is defined asser does nothing
+* turn off debugging by defining #define to NDUBUG.
+* cc -D NDEBUG main.c
+* #ifndef NDEBUG debug code #endif
+  * __func__ name of func
+  * __file__ name of file
+  * __line__ current line number
+  * __TIME__ time of file compiled
+  * __DATE__ date of file compiled
+
+
+Chapter 7 Class
+Sales data class
+* bookNo, units_sold, revenue
+* combine, isbn
+* function to return avg price 
+* member functions access the object on which they were called through an extra implicit parameter named this.
+* when we call a member function, this is initialized with address of the object on which the function was evoked.
+* this is a const pointer to the address of the object on which a method is called.
+
+const member functions
+std::string isbn() const {return this->bookNo} -> const member function, does not alter the data members of the object.
+
+the purpose of const is to modify the type of implicit this pointer.
+default this is a const pointer to non-const version of class type.
+this is Sales_data * const
+we cannot bind this to a const object.
+we cannot call an ordinary member function on a const object.
+a const following the parameter list indicates that this is a pointer to const. members functions that use const in this way are const member functions.
+const member functions cannot alter the data members of the object.
+
+defining a member function outside the class.
+* when we declare a member function outside the class body, the return type, parameter list and name must match the declaration in the class body. 
+
+Defining a function to return "this" object.
+
+Defining non member class related function
+* auxiliary functions such as add, read, print functions that define operations that are part of the interface of the class, they are not part of the class itself.
+
+
